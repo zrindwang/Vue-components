@@ -1,19 +1,30 @@
 <template>
   <div>
-    <el-menu>
-      <el-menu-item>根1</el-menu-item>
-      <el-submenu>
-        <template slot="title">根2</template>
-        <el-menu-item >根2-1</el-menu-item>
-        <el-menu-item >根2-2</el-menu-item>
-        <el-menu-item >根2-3</el-menu-item>
-    </el-menu>
+    <my-menu :data='data'></my-menu>
   </div>
 </template>
 <script>
+import myMenu from './my-menu';
 export default {
+  components:{
+    myMenu
+  },
   data() {
     return {
+      data:[
+        {title:'根 1',id:1},
+        {title:'根 2',id:2,children:[
+          {title:'根 2-1',id:21,children:[
+              {title:'根 2-1-1',id:211},
+              {title:'根 2-1-2',id:212}
+            ]}
+        ]},
+        {title:'根 3',id:3},
+        {title:'根 4',id:4,children:[
+          {title:'根 4-1',id:41},
+          {title:'根 4-2',id:42},
+        ]},
+      ]
     };
   },
   methods: {
